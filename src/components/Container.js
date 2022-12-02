@@ -1,13 +1,13 @@
 import styled from "styled-components"
 import Questions from "./Questions"
 import Logo from "./Logo"
-
+import { useState } from "react"
 export default function Container() {
     return(
         <div>
         <Conteudo >
         <Logo/>
-        <Questions/>
+        <Questions />
         </Conteudo >
         
         </div>
