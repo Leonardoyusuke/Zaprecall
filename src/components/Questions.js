@@ -1,5 +1,5 @@
 import Question from './Question'
-export default function CreateQuestion(){
+export default function CreateQuestion({count,setCount}){
     const cards = [
         {position:"1", question: "O que é JSX?", answer: "Uma extensão da linguagem JavaScript" },
         {position:"2", question: "O React é __", answer: "Uma biblioteca JavaScript para construção de interfaces" },
@@ -13,7 +13,7 @@ export default function CreateQuestion(){
 
 return(
     <div >
-     {cards.map((c) => <Question cards={c} key={c.position} />)}
+     {cards.map((c) => <Question count={count} setCount={setCount} cards={c} key={c.position} />)}
     </div>
 )
 }

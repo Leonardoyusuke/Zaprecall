@@ -2,12 +2,12 @@ import styled from "styled-components"
 import Questions from "./Questions"
 import Logo from "./Logo"
 import { useState } from "react"
-export default function Container() {
+export default function Container({count,setCount}) {
     return(
         <div>
         <Conteudo >
         <Logo/>
-        <Questions />
+        <Questions count={count} setCount={setCount} />
         </Conteudo >
         
         </div>

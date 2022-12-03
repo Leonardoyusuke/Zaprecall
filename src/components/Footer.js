@@ -1,8 +1,9 @@
 import styled from 'styled-components'
+import Question from './Question'
 
-export default function BaseBoard(){
+export default function BaseBoard({count,setCount}){
     return(
-        <Footer/>
+        <Footer> {count}/4 concluidos</Footer>
 
        
     )

@@ -7,7 +7,7 @@ import certo from '../assets/img/icone_certo.png'
 import quase from '../assets/img/icone_quase.png'
 
 
-export default function Question ({cards}){
+export default function Question ({cards,count,setCount}){
     const [QuestionStage,setQuestionStage] = useState(QuestionClosed)
     const [text,setText] = useState(`Pergunta ${cards.position}`)
     const [image,setImage] = useState(<img onClick={() => changeQuestion()} src={seta} />)
@@ -15,7 +15,6 @@ export default function Question ({cards}){
         setQuestionStage(QuestionOpen)
         setText(cards.question)
         setImage(<img onClick={() => turnQuestion()} src={seta2} />)
-
     }
     function turnQuestion(){
         setText(cards.answer)
@@ -25,16 +24,24 @@ export default function Question ({cards}){
       setQuestionStage(QuestionClosed)
       setText(<TextRed>Pergunta {cards.position}</TextRed> )
       setImage(<img src={erro}/>)
+      const newCount = count+1
+      console.log(newCount)
+      setCount(newCount)
     }
     function green(){
       setQuestionStage(QuestionClosed)
       setText(<TextGreen>Pergunta {cards.position}</TextGreen> )
       setImage(<img src={certo}/>)
+      console.log(count)
+      setCount(count+1)
+      console.log(count)
     }
     function orange(){
       setQuestionStage(QuestionClosed)
       setText(<TextOrange>Pergunta {cards.position}</TextOrange> )
       setImage(<img src={quase}/>)
+      setCount(count+1)
+      console.log(count)
     }
     return(
         <QuestionStage > {text} {image} </QuestionStage>
