@@ -1,5 +1,5 @@
 import Question from './Question'
-export default function CreateQuestion(props){
+export default function CreateQuestion(){
     const cards = [
         {position:"1", question: "O que é JSX?", answer: "Uma extensão da linguagem JavaScript" },
         {position:"2", question: "O React é __", answer: "Uma biblioteca JavaScript para construção de interfaces" },
