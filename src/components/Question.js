@@ -37,7 +37,7 @@ export default function Question ({cards,count,setCount,list,setList}){
       console.log(count)
       setCount(count+1)
       console.log(count)
-      list.push("a")
+      setList(list.push("a"))
     }
     function orange(){
       setQuestionStage(QuestionClosed)
@@ -45,7 +45,7 @@ export default function Question ({cards,count,setCount,list,setList}){
       setImage(<img data-test="partial-icon" src={quase}/>)
       setCount(count+1)
       console.log(count)
-      list.push("a")
+      setList(list.push("a"))
     }
     return(
         <QuestionStage data-test="flashcard" > {text} {image} </QuestionStage>
