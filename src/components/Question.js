@@ -7,44 +7,48 @@ import certo from '../assets/img/icone_certo.png'
 import quase from '../assets/img/icone_quase.png'
 
 
-export default function Question ({cards,count,setCount}){
+export default function Question ({cards,count,setCount,list,setList}){
     const [QuestionStage,setQuestionStage] = useState(QuestionClosed)
-    const [text,setText] = useState(`Pergunta ${cards.position}`)
-    const [image,setImage] = useState(<img onClick={() => changeQuestion()} src={seta} />)
+    const [text,setText] = useState(`Pergunta ${cards.position} ` )
+    const [image,setImage] = useState(<img data-test="play-btn" onClick={() => changeQuestion()} src={seta} />)
     function changeQuestion(){
         setQuestionStage(QuestionOpen)
         setText(cards.question)
-        setImage(<img onClick={() => turnQuestion()} src={seta2} />)
+        setImage(<img  data-test="turn-btn" onClick={() => turnQuestion()} src={seta2} />)
     }
     function turnQuestion(){
         setText(cards.answer)
-        setImage(<FixButton><Vermelho onClick={() => red()} > Não lembrei</Vermelho><Laranja onClick={orange}>Quase não lembrei </Laranja><Verde onClick={() => green()}>Zap!</Verde></FixButton>)
+        setImage(<FixButton><Vermelho  data-test="no-btn"  onClick={() => red()} > Não lembrei</Vermelho><Laranja data-test="partial-btn" onClick={orange}>Quase não lembrei </Laranja><Verde data-test="zap-btn" onClick={() => green()}>Zap!</Verde></FixButton>)
     }
     function red(){
       setQuestionStage(QuestionClosed)
-      setText(<TextRed>Pergunta {cards.position}</TextRed> )
-      setImage(<img src={erro}/>)
+      setText(<TextRed data-test="flashcard-text" >Pergunta {cards.position}</TextRed> )
+      setImage(<img  data-test="no-icon" src={erro}/>)
       const newCount = count+1
       console.log(newCount)
       setCount(newCount)
+      setList(list.push("a"))
+      console.log(list)
     }
     function green(){
       setQuestionStage(QuestionClosed)
       setText(<TextGreen>Pergunta {cards.position}</TextGreen> )
-      setImage(<img src={certo}/>)
+      setImage(<img data-test="zap-icon" src={certo}/>)
       console.log(count)
       setCount(count+1)
       console.log(count)
+      list.push("a")
     }
     function orange(){
       setQuestionStage(QuestionClosed)
       setText(<TextOrange>Pergunta {cards.position}</TextOrange> )
-      setImage(<img src={quase}/>)
+      setImage(<img data-test="partial-icon" src={quase}/>)
       setCount(count+1)
       console.log(count)
+      list.push("a")
     }
     return(
-        <QuestionStage > {text} {image} </QuestionStage>
+        <QuestionStage data-test="flashcard" > {text} {image} </QuestionStage>
   )
     }
 

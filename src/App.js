@@ -6,11 +6,12 @@ import { useState } from "react"
 
 function App(){
 const [count,setCount] = useState(0)
+const [list,setList] = useState([])
 
     return (
         <div>
-            <Container count={count} setCount={setCount}/>
-            <Footer count={count} setCount={setCount} />
+            <Container list={list} setList={setList} count={count} setCount={setCount}/>
+            <Footer list={list} count={count} setCount={setCount} />
 
         </div>
     )
