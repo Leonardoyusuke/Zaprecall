@@ -24,9 +24,6 @@ export default function Question ({cards,count,setCount,list,setList}){
       setQuestionStage(QuestionClosed)
       setText(<TextRed data-test="flashcard-text" >Pergunta {cards.position}</TextRed> )
       setImage(<img  data-test="no-icon" src={erro}/>)
-      const newCount = count+1
-      console.log(newCount)
-      setCount(newCount)
       setList(list.push("a"))
       console.log(list)
     }
@@ -34,17 +31,12 @@ export default function Question ({cards,count,setCount,list,setList}){
       setQuestionStage(QuestionClosed)
       setText(<TextGreen>Pergunta {cards.position}</TextGreen> )
       setImage(<img data-test="zap-icon" src={certo}/>)
-      console.log(count)
-      setCount(count+1)
-      console.log(count)
       setList(list.push("a"))
     }
     function orange(){
       setQuestionStage(QuestionClosed)
       setText(<TextOrange>Pergunta {cards.position}</TextOrange> )
       setImage(<img data-test="partial-icon" src={quase}/>)
-      setCount(count+1)
-      console.log(count)
       setList(list.push("a"))
     }
     return(

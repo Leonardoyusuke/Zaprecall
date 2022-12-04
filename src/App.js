@@ -6,7 +6,7 @@ import { useState } from "react"
 
 function App(){
 const [count,setCount] = useState(0)
-const [list,setList] = useState([])
+const [list,setList] = useState([0])
 
     return (
         <div>
