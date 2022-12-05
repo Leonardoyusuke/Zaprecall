@@ -3,6 +3,7 @@ import Question from './Question'
 
 export default function BaseBoard({count,setCount, list }){
     console.log(list)
+    
     return(
         <Footer data-test="footer" > {list}/4 concluidos</Footer>
 
